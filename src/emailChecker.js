@@ -2,7 +2,7 @@
 class EmailValidationError extends Error {
     constructor(message) {
         super(message);  // Appelle le constructeur de la classe parent (Error)
-        //TODO
+        this.name = 'Email ValidationError';
     }
 }
 
@@ -12,7 +12,7 @@ function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
-        //TODO
+        throw new EmailValidationError("la sythaxe de l'adresse mail est invailde");
     }
     return "Adresse e-mail valide.";
 }
